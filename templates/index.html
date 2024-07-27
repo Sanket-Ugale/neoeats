@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeoEats Restaurant</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #121212;
+            --text-color: #ffffff;
+            --neon-green: #39ff14;
+            --neon-blue: #4dc9ff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow-x: hidden;
+        }
+
+        nav {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+
+            padding-right: 10%;
+            list-style-type: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--neon-green);
+        }
+
+        nav a i {
+            margin-right: 0.5rem;
+        }
+
+        main {
+            padding: 8rem 2rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: neon 1.5s ease-in-out infinite alternate;
+        }
+
+        @keyframes neon {
+            from {
+                text-shadow: 0 0 5px var(--neon-green), 0 0 10px var(--neon-green), 0 0 15px var(--neon-green), 0 0 20px var(--neon-green);
+            }
+            to {
+                text-shadow: 0 0 10px var(--neon-green), 0 0 20px var(--neon-green), 0 0 30px var(--neon-green), 0 0 40px var(--neon-green);
+            }
+        }
+
+        p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .cta-button {
+            background-color: var(--neon-green);
+            color: var(--bg-color);
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            background-color: var(--neon-blue);
+            box-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue), 0 0 30px var(--neon-blue);
+            transform: scale(1.05);
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 4rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s;
+            flex-basis: calc(33.333% - 2rem);
+            margin-bottom: 2rem;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(57, 255, 20, 0.2);
+        }
+
+        .feature i {
+            font-size: 3rem;
+            color: var(--neon-green);
+            margin-bottom: 1rem;
+        }
+
+        .feature h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                flex-direction: column;
+                width: 100%;
+                display: none;
+                padding: 0;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .feature {
+                flex-basis: 100%;
+            }
+        }
+
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            .feature {
+                flex-basis: calc(50% - 2rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div>
+            <a href="#"><i class="fas fa-utensils"></i> NeonEats Manager</a>
+        </div>
+        <button class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <ul id="navMenu">
+            <li><a href="/docs"><i class="fas fa-chart-line"></i> Documentation</a></li>
+            <!-- <li><a href="#"><i class="fas fa-book-open"></i> Menu</a></li>
+            <li><a href="#"><i class="far fa-calendar-check"></i> Reservations</a></li>
+            <li><a href="#"><i class="fas fa-users"></i> Staff</a></li> -->
+        </ul>
+    </nav>
+
+    <main>
+        <h1>NeoEats Restaurant</h1>
+        <p>Elevate your restaurant management with our cutting-edge system. Streamline operations, boost efficiency, and watch your business glow!</p>
+        <button class="cta-button">Get Started</button>
+
+        <div class="features">
+            <div class="feature">
+                <i class="fas fa-tachometer-alt"></i>
+                <h3>Real-time Analytics</h3>
+                <p>Monitor your restaurant's performance with instant insights.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-mobile-alt"></i>
+                <h3>Mobile Ordering</h3>
+                <p>Streamline orders with our user-friendly mobile app.</p>
+            </div>
+            <div class="feature">
+                <i class="fas fa-cogs"></i>
+                <h3>Automated Systems</h3>
+                <p>Optimize operations with smart automation tools.</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

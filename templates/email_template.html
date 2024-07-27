@@ -1,0 +1,45 @@
+<!-- templates/otp_email.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account Verification OTP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .otp {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            text-align: center;
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Account Verification OTP</h1>
+        <p>Hello,</p>
+        <p>Your One-Time Password (OTP) for account verification is:</p>
+        <div class="otp">{{.OTP}}</div>
+        <p>This OTP will expire in 15 minutes. Please use it to verify your account.</p>
+        <p>If you didn't request this OTP, please ignore this email.</p>
+        <p>Best regards,<br>NeoEats</p>
+    </div>
+</body>
+</html>
