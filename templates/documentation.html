@@ -1,106 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Backend Service Documentation</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NeoEats Restaurant Documentation</title>
+    <title>NeoEats Restaurant</title>
+    <link href="/assets/icon.png" rel="icon" />
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            display: flex;
-            background-color: #1e1e1e;
-            color: #dcdcdc;
-        }
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        background-color: #1e1e1e;
+        color: #dcdcdc;
+      }
+      .navbar {
+        height: 100vh;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+        overflow-y: auto;
+      }
+      .navbar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #fff;
+        display: block;
+      }
+      .navbar a:hover {
+        background-color: #575757;
+      }
+      .content {
+        margin-left: 250px;
+        padding: 20px;
+        flex: 1;
+      }
+      h2 {
+        color: #39ff14;
+      }
+      pre {
+        background-color: #4b4b4b;
+        color: #dcdcdc;
+        padding: 10px;
+        border-radius: 5px;
+        position: relative;
+        overflow: auto;
+      }
+      .copy-code {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #39ff14;
+        border: none;
+        padding: 5px;
+        cursor: pointer;
+        border-radius: 5px;
+        visibility: hidden;
+      }
+      .copy-code:hover {
+        background-color: #2ecc71;
+      }
+      @media (max-width: 768px) {
         .navbar {
-            height: 100vh;
-            width: 250px;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            padding-top: 20px;
-            overflow-y: auto;
+          width: 100%;
+          height: auto;
+          position: relative;
         }
         .navbar a {
-            padding: 10px 15px;
-            text-decoration: none;
-            font-size: 18px;
-            color: #fff;
-            display: block;
-        }
-        .navbar a:hover {
-            background-color: #575757;
+          float: left;
         }
         .content {
-            margin-left: 250px;
-            padding: 20px;
-            flex: 1;
+          margin-left: 0;
         }
-        h2 {
-            color: #39ff14;
-        }
-        pre {
-            background-color: #4b4b4b;
-            color: #dcdcdc;
-            padding: 10px;
-            border-radius: 5px;
-            position: relative;
-            overflow: auto;
-        }
-        .copy-code {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: #39ff14;
-            border: none;
-            padding: 5px;
-            cursor: pointer;
-            border-radius: 5px;
-        }
-        .copy-code:hover {
-            background-color: #2ecc71;
-        }
-        @media (max-width: 768px) {
-            .navbar {
-                width: 100%;
-                height: auto;
-                position: relative;
-            }
-            .navbar a {
-                float: left;
-            }
-            .content {
-                margin-left: 0;
-            }
-        }
+      }
+
+      .container {
+        display: flex;
+        justify-content: center; /* Centers horizontally */
+      }
+
+      img {
+        height: 150px;
+        width: auto;
+      }
     </style>
     <script>
-        function copyToClipboard(id) {
-            const code = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert("Code copied to clipboard!");
-            }).catch(err => {
-                console.error('Error copying text: ', err);
-            });
-        }
+      function copyToClipboard(id) {
+        const code = document.getElementById(id).innerText;
+        navigator.clipboard
+          .writeText(code)
+          .then(() => {
+            alert("Code copied to clipboard!");
+          })
+          .catch((err) => {
+            console.error("Error copying text: ", err);
+          });
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <a href="#users">Users</a>
-        <a href="#orders">Orders</a>
-        <a href="#orderItems">Order Items</a>
-        <a href="#foods">Foods</a>
-        <a href="#menus">Menus</a>
-        <a href="#invoices">Invoices</a>
-        <a href="#tables">Tables</a>
+      <div class="container">
+        <img src="/assets/icon.png" alt="Restaurant Icon" />
+      </div>
+      <hr>
+      <a href="#users">Users</a>
+      <a href="#orders">Orders</a>
+      <a href="#orderItems">Order Items</a>
+      <a href="#foods">Foods</a>
+      <a href="#menus">Menus</a>
+      <a href="#invoices">Invoices</a>
+      <a href="#tables">Tables</a>
     </div>
     <div class="content">
-        <h2 id="users">User Routes</h2>
-        <!-- User Routes Documentation -->
-        <h3>GET /users</h3>
-        <pre id="getUsers">
+      <h2 id="users">User Routes</h2>
+      <!-- User Routes Documentation -->
+      <h3>GET /users</h3>
+      <pre id="getUsers">
 {
     "users": [
         {
@@ -110,69 +130,90 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getUsers')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getUsers')">
+        Copy Code
+      </button>
 
-        <h3>GET /users/:user_id</h3>
-        <pre id="getUser">
+      <h3>GET /users/:user_id</h3>
+      <pre id="getUser">
 {
     "id": "1",
     "name": "John Doe",
     "email": "john@example.com"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getUser')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getUser')">
+        Copy Code
+      </button>
 
-        <h3>POST /users/signup</h3>
-        <pre id="signUp">
+      <h3>POST /users/signup</h3>
+      <pre id="signUp">
 {
     "name": "John Doe",
     "email": "john@example.com",
     "password": "password123"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('signUp')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('signUp')">
+        Copy Code
+      </button>
 
-        <h3>POST /users/login</h3>
-        <pre id="login">
+      <h3>POST /users/login</h3>
+      <pre id="login">
 {
     "email": "john@example.com",
     "password": "password123"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('login')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('login')">
+        Copy Code
+      </button>
 
-        <h3>POST /users/verify-otp</h3>
-        <pre id="verifyOtp">
+      <h3>POST /users/verify-otp</h3>
+      <pre id="verifyOtp">
 {
     "email": "john@example.com",
     "otp": "123456"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('verifyOtp')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('verifyOtp')">
+        Copy Code
+      </button>
 
-        <h3>POST /users/forgot-password</h3>
-        <pre id="forgotPassword">
+      <h3>POST /users/forgot-password</h3>
+      <pre id="forgotPassword">
 {
     "email": "john@example.com"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('forgotPassword')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('forgotPassword')">
+        Copy Code
+      </button>
 
-        <h3>POST /users/reset-password</h3>
-        <pre id="resetPassword">
+      <h3>POST /users/reset-password</h3>
+      <pre id="resetPassword">
 {
     "email": "john@example.com",
     "otp": "123456",
     "new_password": "newpassword123"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('resetPassword')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('resetPassword')">
+        Copy Code
+      </button>
 
-        <h2 id="orders">Order Routes</h2>
-        <!-- Order Routes Documentation -->
-        <h3>GET /orders</h3>
-        <pre id="getOrders">
+      <h2 id="orders">Order Routes</h2>
+      <!-- Order Routes Documentation -->
+      <h3>GET /orders</h3>
+      <pre id="getOrders">
 {
     "orders": [
         {
@@ -182,21 +223,27 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getOrders')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getOrders')">
+        Copy Code
+      </button>
 
-        <h3>GET /orders/:order_id</h3>
-        <pre id="getOrder">
+      <h3>GET /orders/:order_id</h3>
+      <pre id="getOrder">
 {
     "id": "1",
     "user_id": "1",
     "status": "pending"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getOrder')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getOrder')">
+        Copy Code
+      </button>
 
-        <h3>POST /orders</h3>
-        <pre id="createOrder">
+      <h3>POST /orders</h3>
+      <pre id="createOrder">
 {
     "user_id": "1",
     "items": [
@@ -206,29 +253,38 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('createOrder')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('createOrder')">
+        Copy Code
+      </button>
 
-        <h3>PATCH /orders/:order_id</h3>
-        <pre id="updateOrder">
+      <h3>PATCH /orders/:order_id</h3>
+      <pre id="updateOrder">
 {
     "status": "completed"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('updateOrder')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('updateOrder')">
+        Copy Code
+      </button>
 
-        <h3>DELETE /orders/:order_id</h3>
-        <pre id="deleteOrder">
+      <h3>DELETE /orders/:order_id</h3>
+      <pre id="deleteOrder">
 {
     "message": "Order deleted successfully"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('deleteOrder')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('deleteOrder')">
+        Copy Code
+      </button>
 
-        <h2 id="orderItems">Order Item Routes</h2>
-        <!-- Order Item Routes Documentation -->
-        <h3>GET /orderItems</h3>
-        <pre id="getOrderItems">
+      <h2 id="orderItems">Order Item Routes</h2>
+      <!-- Order Item Routes Documentation -->
+      <h3>GET /orderItems</h3>
+      <pre id="getOrderItems">
 {
     "orderItems": [
         {
@@ -239,22 +295,28 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getOrderItems')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getOrderItems')">
+        Copy Code
+      </button>
 
-        <h3>GET /orderItems/:order_item_id</h3>
-        <pre id="getOrderItem">
+      <h3>GET /orderItems/:order_item_id</h3>
+      <pre id="getOrderItem">
 {
     "id": "1",
     "order_id": "1",
     "product_id": "101",
     "quantity": "2"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getOrderItem')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getOrderItem')">
+        Copy Code
+      </button>
 
-        <h3>GET /orders/:order_id/items</h3>
-        <pre id="getOrderItemsByOrder">
+      <h3>GET /orders/:order_id/items</h3>
+      <pre id="getOrderItemsByOrder">
 {
     "orderItems": [
         {
@@ -265,39 +327,54 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getOrderItemsByOrder')">Copy Code</button>
+        </pre
+      >
+      <button
+        class="copy-code"
+        onclick="copyToClipboard('getOrderItemsByOrder')"
+      >
+        Copy Code
+      </button>
 
-        <h3>POST /orderItems</h3>
-        <pre id="createOrderItem">
+      <h3>POST /orderItems</h3>
+      <pre id="createOrderItem">
 {
     "order_id": "1",
     "product_id": "101",
     "quantity": "2"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('createOrderItem')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('createOrderItem')">
+        Copy Code
+      </button>
 
-        <h3>PATCH /orderItems/:orderItem_id</h3>
-        <pre id="updateOrderItem">
+      <h3>PATCH /orderItems/:orderItem_id</h3>
+      <pre id="updateOrderItem">
 {
     "quantity": "3"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('updateOrderItem')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('updateOrderItem')">
+        Copy Code
+      </button>
 
-        <h3>DELETE /orderItems/:orderItem_id</h3>
-        <pre id="deleteOrderItem">
+      <h3>DELETE /orderItems/:orderItem_id</h3>
+      <pre id="deleteOrderItem">
 {
     "message": "Order item deleted successfully"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('deleteOrderItem')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('deleteOrderItem')">
+        Copy Code
+      </button>
 
-        <h2 id="foods">Food Routes</h2>
-        <!-- Food Routes Documentation -->
-        <h3>GET /foods</h3>
-        <pre id="getFoods">
+      <h2 id="foods">Food Routes</h2>
+      <!-- Food Routes Documentation -->
+      <h3>GET /foods</h3>
+      <pre id="getFoods">
 {
     "foods": [
         {
@@ -307,48 +384,63 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getFoods')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getFoods')">
+        Copy Code
+      </button>
 
-        <h3>GET /foods/:food_id</h3>
-        <pre id="getFood">
+      <h3>GET /foods/:food_id</h3>
+      <pre id="getFood">
 {
     "id": "1",
     "name": "Burger",
     "price": "5.99"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getFood')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getFood')">
+        Copy Code
+      </button>
 
-        <h3>POST /foods</h3>
-        <pre id="createFood">
+      <h3>POST /foods</h3>
+      <pre id="createFood">
 {
     "name": "Burger",
     "price": "5.99"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('createFood')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('createFood')">
+        Copy Code
+      </button>
 
-        <h3>PATCH /foods/:food_id</h3>
-        <pre id="updateFood">
+      <h3>PATCH /foods/:food_id</h3>
+      <pre id="updateFood">
 {
     "price": "6.99"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('updateFood')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('updateFood')">
+        Copy Code
+      </button>
 
-        <h3>DELETE /foods/:food_id</h3>
-        <pre id="deleteFood">
+      <h3>DELETE /foods/:food_id</h3>
+      <pre id="deleteFood">
 {
     "message": "Food item deleted successfully"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('deleteFood')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('deleteFood')">
+        Copy Code
+      </button>
 
-        <h2 id="menus">Menu Routes</h2>
-        <!-- Menu Routes Documentation -->
-        <h3>GET /menus</h3>
-        <pre id="getMenus">
+      <h2 id="menus">Menu Routes</h2>
+      <!-- Menu Routes Documentation -->
+      <h3>GET /menus</h3>
+      <pre id="getMenus">
 {
     "menus": [
         {
@@ -358,48 +450,63 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getMenus')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getMenus')">
+        Copy Code
+      </button>
 
-        <h3>GET /menus/:menu_id</h3>
-        <pre id="getMenu">
+      <h3>GET /menus/:menu_id</h3>
+      <pre id="getMenu">
 {
     "id": "1",
     "name": "Breakfast Menu",
     "description": "Morning meals"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getMenu')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getMenu')">
+        Copy Code
+      </button>
 
-        <h3>POST /menus</h3>
-        <pre id="createMenu">
+      <h3>POST /menus</h3>
+      <pre id="createMenu">
 {
     "name": "Breakfast Menu",
     "description": "Morning meals"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('createMenu')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('createMenu')">
+        Copy Code
+      </button>
 
-        <h3>PATCH /menus/:menu_id</h3>
-        <pre id="updateMenu">
+      <h3>PATCH /menus/:menu_id</h3>
+      <pre id="updateMenu">
 {
     "description": "Updated morning meals"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('updateMenu')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('updateMenu')">
+        Copy Code
+      </button>
 
-        <h3>DELETE /menus/:menu_id</h3>
-        <pre id="deleteMenu">
+      <h3>DELETE /menus/:menu_id</h3>
+      <pre id="deleteMenu">
 {
     "message": "Menu deleted successfully"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('deleteMenu')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('deleteMenu')">
+        Copy Code
+      </button>
 
-        <h2 id="invoices">Invoice Routes</h2>
-        <!-- Invoice Routes Documentation -->
-        <h3>GET /invoices</h3>
-        <pre id="getInvoices">
+      <h2 id="invoices">Invoice Routes</h2>
+      <!-- Invoice Routes Documentation -->
+      <h3>GET /invoices</h3>
+      <pre id="getInvoices">
 {
     "invoices": [
         {
@@ -409,48 +516,63 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getInvoices')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getInvoices')">
+        Copy Code
+      </button>
 
-        <h3>GET /invoices/:invoice_id</h3>
-        <pre id="getInvoice">
+      <h3>GET /invoices/:invoice_id</h3>
+      <pre id="getInvoice">
 {
     "id": "1",
     "order_id": "1",
     "amount": "20.00"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getInvoice')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getInvoice')">
+        Copy Code
+      </button>
 
-        <h3>POST /invoices</h3>
-        <pre id="createInvoice">
+      <h3>POST /invoices</h3>
+      <pre id="createInvoice">
 {
     "order_id": "1",
     "amount": "20.00"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('createInvoice')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('createInvoice')">
+        Copy Code
+      </button>
 
-        <h3>PATCH /invoices/:invoice_id</h3>
-        <pre id="updateInvoice">
+      <h3>PATCH /invoices/:invoice_id</h3>
+      <pre id="updateInvoice">
 {
     "amount": "25.00"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('updateInvoice')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('updateInvoice')">
+        Copy Code
+      </button>
 
-        <h3>DELETE /invoices/:invoice_id</h3>
-        <pre id="deleteInvoice">
+      <h3>DELETE /invoices/:invoice_id</h3>
+      <pre id="deleteInvoice">
 {
     "message": "Invoice deleted successfully"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('deleteInvoice')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('deleteInvoice')">
+        Copy Code
+      </button>
 
-        <h2 id="tables">Table Routes</h2>
-        <!-- Table Routes Documentation -->
-        <h3>GET /tables</h3>
-        <pre id="getTables">
+      <h2 id="tables">Table Routes</h2>
+      <!-- Table Routes Documentation -->
+      <h3>GET /tables</h3>
+      <pre id="getTables">
 {
     "tables": [
         {
@@ -460,43 +582,58 @@
         }
     ]
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getTables')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getTables')">
+        Copy Code
+      </button>
 
-        <h3>GET /tables/:table_id</h3>
-        <pre id="getTable">
+      <h3>GET /tables/:table_id</h3>
+      <pre id="getTable">
 {
     "id": "1",
     "number": "5",
     "status": "available"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('getTable')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('getTable')">
+        Copy Code
+      </button>
 
-        <h3>POST /tables</h3>
-        <pre id="createTable">
+      <h3>POST /tables</h3>
+      <pre id="createTable">
 {
     "number": "5",
     "status": "available"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('createTable')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('createTable')">
+        Copy Code
+      </button>
 
-        <h3>PATCH /tables/:table_id</h3>
-        <pre id="updateTable">
+      <h3>PATCH /tables/:table_id</h3>
+      <pre id="updateTable">
 {
     "status": "occupied"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('updateTable')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('updateTable')">
+        Copy Code
+      </button>
 
-        <h3>DELETE /tables/:table_id</h3>
-        <pre id="deleteTable">
+      <h3>DELETE /tables/:table_id</h3>
+      <pre id="deleteTable">
 {
     "message": "Table deleted successfully"
 }
-        </pre>
-        <button class="copy-code" onclick="copyToClipboard('deleteTable')">Copy Code</button>
+        </pre
+      >
+      <button class="copy-code" onclick="copyToClipboard('deleteTable')">
+        Copy Code
+      </button>
     </div>
-</body>
+  </body>
 </html>

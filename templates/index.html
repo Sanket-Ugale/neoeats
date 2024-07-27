@@ -6,6 +6,7 @@
     <title>NeoEats Restaurant</title>
     <link href="/assets/icon.png" rel="icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         :root {
             --bg-color: #121212;
@@ -36,7 +37,6 @@
         }
 
         nav ul {
-
             padding-right: 10%;
             list-style-type: none;
             display: flex;
@@ -195,6 +195,37 @@
                 flex-basis: calc(50% - 2rem);
             }
         }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            text-align: center;
+            color: var(--text-color);
+        }
+
+        footer .social-icons {
+            margin: 1rem 0;
+        }
+
+        footer .social-icons a {
+            color: var(--text-color);
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+
+        footer .social-icons a:hover {
+            color: var(--neon-green);
+        }
+
+        footer a {
+            color: var(--neon-green);
+            text-decoration: none;
+            margin: 0 1rem;
+        }
+
+        footer a:hover {
+            color: var(--neon-blue);
+        }
     </style>
 </head>
 <body>
@@ -238,6 +269,21 @@
             </div>
         </div>
     </main>
+
+    <footer>
+        <div class="social-icons">
+            <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <p>&copy; 2024 NeoEats Restaurant. All rights reserved.</p>
+        <p>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a>
+        </p>
+    </footer>
 
     <script>
         const menuToggle = document.getElementById('menuToggle');
