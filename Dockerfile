@@ -29,7 +29,7 @@ COPY --from=builder /app/main .
 COPY --from=builder /app/templates ./templates
 
 # Copy .env file
-# COPY --from=builder /app/.env ./.env
+COPY --from=builder /app/.env ./.env
 
 # Expose port 80 to the outside world
 EXPOSE 80
