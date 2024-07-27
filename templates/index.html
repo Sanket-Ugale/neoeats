@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NeoEats Restaurant</title>
+    <link href="/assets/icon.png" rel="icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <style>
         :root {
@@ -85,6 +86,10 @@
             font-size: 1.2rem;
             max-width: 600px;
             margin: 0 auto 2rem;
+        }
+        img{
+            height: 150px;
+            width: auto;
         }
 
         .cta-button {
@@ -195,7 +200,7 @@
 <body>
     <nav>
         <div>
-            <a href="#"><i class="fas fa-utensils"></i> NeonEats Manager</a>
+            <a href="#"><i class="fas fa-utensils"></i> NeoEats Manager</a>
         </div>
         <button class="menu-toggle" id="menuToggle">
             <i class="fas fa-bars"></i>
@@ -209,9 +214,11 @@
     </nav>
 
     <main>
+        <img src="/assets/icon.png" alt="Restaurant Icon">
         <h1>NeoEats Restaurant</h1>
         <p>Elevate your restaurant management with our cutting-edge system. Streamline operations, boost efficiency, and watch your business glow!</p>
-        <button class="cta-button">Get Started</button>
+        
+        <button onclick="window.location.href='/docs'" class="cta-button">Get Started</button>
 
         <div class="features">
             <div class="feature">

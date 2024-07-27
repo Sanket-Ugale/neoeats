@@ -77,6 +77,7 @@ func main() {
 	router.Use(gin.Logger())
 	routes.UserRoutes(router)
 	routes.HomeRoutes(router)
+	router.Static("/assets", "./assets")
 	router.LoadHTMLGlob("templates/*")
 	router.Use(middleware.Authentication())
 
