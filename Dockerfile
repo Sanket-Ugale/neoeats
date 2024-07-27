@@ -31,6 +31,9 @@ COPY --from=builder /app/templates ./templates
 # Copy .env file
 COPY --from=builder /app/.env ./.env
 
+# Copy the assets directory
+COPY --from=builder /app/assets/ ./assets
+
 # Expose port 80 to the outside world
 EXPOSE 80
 
